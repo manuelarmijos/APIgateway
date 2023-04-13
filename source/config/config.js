@@ -18,12 +18,12 @@ exports.proxies = {
             [`^/solicitudes`]: "/solicitude",
         },
     },
-    "/autenticar": {
+    "/autenticacion": {
         protected: false,
         target: "http://127.0.0.1:3002/",
         changeOrigin: true,
         pathRewrite: {
-            [`^/autenticar`]: "/autenticar",
+            [`^/autenticacion`]: "/autenticar",
         }
     },
     "/finalizar": {
