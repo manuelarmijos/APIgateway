@@ -24,10 +24,7 @@ app.use(
     resave: false,
     cookie: { // cookies manage
       path: '/',
-      maxAge: 6000000,
-      httpOnly: false,
-      secure: false,
-      sameSite: false
+      maxAge: 6000000
     },
   })
 );
