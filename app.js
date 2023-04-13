@@ -21,7 +21,7 @@ app.use(
     name: 'test', // Personaliza el nombre para 'test' 
     secret,
     saveUninitialized: true,
-    resave: false,
+    resave: true,
     cookie: { // cookies manage
       path: '/',
       maxAge: 6000000
