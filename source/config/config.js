@@ -28,7 +28,7 @@ exports.proxies = {
         },
         // secure: false,
         pathRewrite: {
-            [`^/autenticar`]: "",
+            [`^/autenticar`]: "/autenticar",
         },
         on: {
             proxyReq: (proxyReq, req, res) => {
