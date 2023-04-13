@@ -1,6 +1,6 @@
 require("dotenv").config();
 
-exports.serverPort = 3000;
+exports.serverPort = 3010;
 exports.sessionSecret = process.env.SESSION_SECRET;
 exports.rate = {
     windowMs: 5 * 60 * 1000,
