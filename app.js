@@ -32,10 +32,13 @@ app.use(
 
 //app.use(cors());
 
-app.use(cors({
-  origin: 'http://192.168.1.8:8080',
-  credentials: true
-}));
+const corsConfig = {
+  origin: true,
+  credentials: true,
+};
+
+app.use(cors(corsConfig));
+app.options('*', cors(corsConfig))
 
 
 app.use(helmet());
