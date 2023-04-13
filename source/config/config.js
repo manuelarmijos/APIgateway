@@ -19,7 +19,7 @@ exports.proxies = {
         },
     },
     "/autenticacion": {
-        protected: false,
+        protected: true,
         target: "http://127.0.0.1:3002/",
         changeOrigin: true,
         pathRewrite: {
