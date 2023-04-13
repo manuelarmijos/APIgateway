@@ -24,6 +24,24 @@ exports.proxies = {
         changeOrigin: true,
         pathRewrite: {
             [`^/autenticacion`]: "/autenticar",
+        },
+        logLevel: 'debug',
+        //logProvider:
+        onError(err, req, res) {
+            res.writeHead(500, {
+                'Content-Type': 'text/plain'
+            });
+            res.end('Something went wrong. And we are reporting a custom error message.' + err);
+        },
+        onProxyRes(proxyRes, req, res) {
+            //proxyRes.headers['x-added'] = 'foobar';     // add new header to response
+            //delete proxyRes.headers['x-removed'];       // remove header from response
+        },
+        onProxyReq(proxyReq, req, res) {
+            if (req.method == "POST" && req.body) {
+                proxyReq.write(encodeURIComponent(JSON.stringify(req.body)));
+                proxyReq.end();
+            }
         }
     },
     "/finalizar": {
