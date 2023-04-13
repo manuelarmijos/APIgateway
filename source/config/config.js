@@ -19,7 +19,7 @@ exports.proxies = {
         },
     },
     "/autenticar": {
-        protected: true,
+        protected: false,
         target: "http://169.62.217.189:3002",
         changeOrigin: true,
         headers: {
