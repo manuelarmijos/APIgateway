@@ -160,7 +160,7 @@ Object.keys(config.proxies).forEach((path) => {
   console.log(path)
   console.log('check')
   console.log(check)
-  app.use(path, check, createProxyMiddleware(options));
+  app.use(path, createProxyMiddleware(options));
 });
 
 const server = app.listen(port, (err) => {
