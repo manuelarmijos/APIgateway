@@ -11,8 +11,8 @@ exports.rate = {
 exports.proxies = {
     "/solicitud": {
         protected: true,
-        target: "http://127.0.0.1:3001",
-        changeOrigin: true,
+        target: "127.0.0.1:3001",
+        changeOrigin: false,
         // secure: false,
         pathRewrite: {
             [`^/solicitudes`]: "/solicitude",
@@ -20,12 +20,41 @@ exports.proxies = {
     },
     "/autenticar": {
         protected: true,
-        target: "http://127.0.0.1:3002",
+        target: "http://169.62.217.189:3002",
         changeOrigin: true,
+        headers: {
+            accept: "application/json",
+            method: "POST",
+        },
         // secure: false,
         pathRewrite: {
             [`^/autenticar`]: "/autenticar",
         },
+        on: {
+            proxyReq: (proxyReq, req, res) => {
+                console.log(proxyRes)
+                console.log(req)
+                console.log(res)
+                /* handle proxyReq */
+            },
+            proxyRes: (proxyRes, req, res) => {
+                console.log(proxyRes)
+                console.log(req)
+                console.log(res)
+                /* handle proxyRes */
+            },
+            error: (err, req, res) => {
+                console.log(err)
+                console.log(req)
+                console.log(res)
+            },
+        },
+        xfwd: true,
+        onProxyReq: proxyReq => {
+            if (proxyReq.getHeader('origin')) proxyReq.setHeader('origin', '127.0.0.1:3000')
+        },
+        logLevel: "debug",
+        //logProvider: function () { return require('debug')('api-gateway:proxyLog') }
     },
     "/finalizar": {
         protected: true,

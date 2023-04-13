@@ -97,11 +97,6 @@ app.get('/', (req, res) => {
 
 // app.use('/s/solicitud/', solicitud);
 
-const server = app.listen(port, (err) => {
-  if (err) throw new Error(err);
-  console.log(`SERVIDOR CORRIENDO PUERTO: ${port}`);
-});
-
 
 app.get("/login", (req, res, next) => {
 
@@ -147,6 +142,12 @@ Object.keys(config.proxies).forEach((path) => {
   console.log(check)
   app.use(path, check, createProxyMiddleware(options));
 });
+
+const server = app.listen(port, (err) => {
+  if (err) throw new Error(err);
+  console.log(`SERVIDOR CORRIENDO PUERTO: ${port}`);
+});
+
 
 // app.use(
 //     "/search",
