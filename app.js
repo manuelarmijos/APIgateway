@@ -32,21 +32,11 @@ app.use(
 
 //app.use(cors());
 
-const corsOpts = {
-  origin: '*',
-
-  methods: [
-    'GET',
-    'POST',
-  ],
-
-  allowedHeaders: [
-    'Content-Type',
-  ],
+app.use(cors({
+  origin: 'http://192.168.1.8:8080',
   credentials: true
-};
+}));
 
-app.use(cors(corsOpts));
 
 app.use(helmet());
 
