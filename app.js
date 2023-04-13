@@ -25,7 +25,7 @@ app.use(
     cookie: { // cookies manage
       path: '/',
       maxAge: 6000000,
-      secure: true
+      secure: false
     },
   })
 );
