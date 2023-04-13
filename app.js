@@ -34,7 +34,7 @@ app.use(
 
 //app.use(cors());
 app.use(cors({
-  origin: 'http://localhost:8080',
+  origin: '*',
   credentials: true
 }))
 
