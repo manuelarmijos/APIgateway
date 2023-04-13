@@ -34,7 +34,7 @@ app.use(
 
 //app.use(cors());
 app.use(cors({
-  origin: '*',
+  origin: 'http://192.168.1.8:8080/',
   credentials: true
 }))
 
