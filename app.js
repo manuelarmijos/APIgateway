@@ -43,6 +43,7 @@ const corsOpts = {
   allowedHeaders: [
     'Content-Type',
   ],
+  credentials: true
 };
 
 app.use(cors(corsOpts));
