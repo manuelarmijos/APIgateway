@@ -20,7 +20,7 @@ exports.proxies = {
     },
     "/autenticar": {
         protected: false,
-        target: "http://169.62.217.189:3002/",
+        target: "http://127.0.0.1:3002/",
         changeOrigin: true,
         headers: {
             accept: "application/json",
@@ -28,7 +28,7 @@ exports.proxies = {
         },
         // secure: false,
         pathRewrite: {
-            [`^/autenticar`]: "/autenticar",
+            [`^/autenticar`]: "",
         },
         on: {
             proxyReq: (proxyReq, req, res) => {
@@ -51,13 +51,7 @@ exports.proxies = {
                 console.log(req)
                 console.log(res)
             },
-        },
-        xfwd: true,
-        onProxyReq: proxyReq => {
-            if (proxyReq.getHeader('origin')) proxyReq.setHeader('origin', '127.0.0.1:3000')
-        },
-        logLevel: "debug",
-        //logProvider: function () { return require('debug')('api-gateway:proxyLog') }
+        }
     },
     "/finalizar": {
         protected: true,
