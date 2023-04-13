@@ -20,7 +20,7 @@ exports.proxies = {
     },
     "/autenticar": {
         protected: false,
-        target: "http://169.62.217.189:3002",
+        target: "http://169.62.217.189:3002/",
         changeOrigin: true,
         headers: {
             accept: "application/json",
