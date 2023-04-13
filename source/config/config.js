@@ -32,18 +32,21 @@ exports.proxies = {
         },
         on: {
             proxyReq: (proxyReq, req, res) => {
+                console.log('proxy rest 1')
                 console.log(proxyRes)
                 console.log(req)
                 console.log(res)
                 /* handle proxyReq */
             },
             proxyRes: (proxyRes, req, res) => {
+                console.log('proxy rest')
                 console.log(proxyRes)
                 console.log(req)
                 console.log(res)
                 /* handle proxyRes */
             },
             error: (err, req, res) => {
+                console.log('error')
                 console.log(err)
                 console.log(req)
                 console.log(res)
