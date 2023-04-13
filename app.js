@@ -21,10 +21,11 @@ app.use(
     name: 'test', // Personaliza el nombre para 'test' 
     secret,
     saveUninitialized: true,
-    resave: true,
+    resave: false,
     cookie: { // cookies manage
       path: '/',
-      maxAge: 6000000
+      maxAge: 6000000,
+      secure: true
     },
   })
 );
