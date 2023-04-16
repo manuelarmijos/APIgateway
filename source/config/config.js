@@ -11,7 +11,7 @@ exports.rate = {
 exports.proxies = {
     "/solicitud": {
         protected: false,
-        target: "127.0.0.1:3003/",
+        target: "169.62.217.189:3003/",
         changeOrigin: false,
         // secure: false,
         pathRewrite: {
@@ -23,7 +23,7 @@ exports.proxies = {
             res.writeHead(500, {
                 'Content-Type': 'text/plain'
             });
-            res.end('Ocurrio un error en el API, por favor inténtelo más tarde.' + err);
+            res.end('Ocurrio un error en el API de solicitud, por favor inténtelo más tarde.' + err);
         },
         onProxyReq(proxyReq, req, res) {
             console.log('Enviado cabeceras al microservicio de solicitudes')
@@ -50,7 +50,7 @@ exports.proxies = {
             res.writeHead(500, {
                 'Content-Type': 'text/plain'
             });
-            res.end('Ocurrio un error en el API, por favor inténtelo más tarde.' + err);
+            res.end('Ocurrio un error en el API de autenticación, por favor inténtelo más tarde.' + err);
         },
         onProxyReq(proxyReq, req, res) {
             console.log('Enviado cabeceras al microservicio de autenticar')
