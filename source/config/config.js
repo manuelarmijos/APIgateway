@@ -11,7 +11,7 @@ exports.rate = {
 exports.proxies = {
     "/solicitud": {
         protected: false,
-        target: "169.62.217.189:3003/",
+        target: "http://169.62.217.189:3003/",
         changeOrigin: false,
         // secure: false,
         pathRewrite: {
