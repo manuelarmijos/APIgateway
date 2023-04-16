@@ -15,7 +15,7 @@ exports.proxies = {
         changeOrigin: false,
         // secure: false,
         pathRewrite: {
-            [`^/solicitudes`]: "/solicitude",
+            [`^/solicitud`]: "/solicitud",
         },
         logLevel: 'debug',
         //logProvider:
