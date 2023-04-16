@@ -11,7 +11,7 @@ exports.rate = {
 exports.proxies = {
     "/solicitud": {
         protected: false,
-        target: "127.0.0.1:3003",
+        target: "127.0.0.1:3003/",
         changeOrigin: false,
         // secure: false,
         pathRewrite: {
@@ -65,7 +65,7 @@ exports.proxies = {
     },
     "/finalizar": {
         protected: true,
-        target: "http://127.0.0.1:3003",
+        target: "http://127.0.0.1:3004",
         changeOrigin: true,
         // secure: false,
         pathRewrite: {
