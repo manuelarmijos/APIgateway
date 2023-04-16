@@ -20,12 +20,12 @@ app.use(
   session({
     name: 'test', // Personaliza el nombre para 'test' 
     secret,
-    saveUninitialized: true,
+    saveUninitialized: false,
     resave: false,
     cookie: { // cookies manage
       path: '/',
       maxAge: 6000000,
-      secure: false
+      // secure: false
     },
   })
 );
