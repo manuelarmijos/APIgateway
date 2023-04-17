@@ -56,7 +56,7 @@ exports.proxies = {
             console.log('Enviado cabeceras al microservicio de autenticar')
             if (req.body) {
                 let bodyData = JSON.stringify(req.body);
-+                proxyReq.setHeader('Content-Type', 'application/json');
+                +                proxyReq.setHeader('Content-Type', 'application/json');
                 proxyReq.setHeader('Content-Length', Buffer.byteLength(bodyData));
                 // stream the content
                 proxyReq.write(bodyData);
@@ -64,8 +64,8 @@ exports.proxies = {
         }
     },
     "/finalizar": {
-        protected: true,
-        target: "http://127.0.0.1:3004",
+        protected: false,
+        target: "http://64.226.112.105:3003/",
         changeOrigin: true,
         // secure: false,
         pathRewrite: {
