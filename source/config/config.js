@@ -71,5 +71,23 @@ exports.proxies = {
         pathRewrite: {
             [`^/finalizar`]: "/finalizar",
         },
+        logLevel: 'debug',
+        //logProvider:
+        onError(err, req, res) {
+            res.writeHead(500, {
+                'Content-Type': 'text/plain'
+            });
+            res.end('Ocurrio un error en el API de finalizar, por favor inténtelo más tarde.' + err);
+        },
+        onProxyReq(proxyReq, req, res) {
+            console.log('Enviado cabeceras al microservicio de finalizar')
+            if (req.body) {
+                let bodyData = JSON.stringify(req.body);
+                +                proxyReq.setHeader('Content-Type', 'application/json');
+                proxyReq.setHeader('Content-Length', Buffer.byteLength(bodyData));
+                // stream the content
+                proxyReq.write(bodyData);
+            }
+        }
     },
 };
