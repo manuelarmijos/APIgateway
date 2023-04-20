@@ -13,12 +13,10 @@ exports.proxies = {
         protected: false,
         target: "http://169.62.217.189:3003/",
         changeOrigin: false,
-        // secure: false,
         pathRewrite: {
             [`^/solicitud`]: "/solicitud",
         },
         logLevel: 'debug',
-        //logProvider:
         onError(err, req, res) {
             res.writeHead(500, {
                 'Content-Type': 'text/plain'
@@ -29,10 +27,8 @@ exports.proxies = {
             console.log('Enviado cabeceras al microservicio de solicitudes')
             if (req.body) {
                 let bodyData = JSON.stringify(req.body);
-                // incase if content-type is application/x-www-form-urlencoded -> we need to change to application/json
                 proxyReq.setHeader('Content-Type', 'application/json');
                 proxyReq.setHeader('Content-Length', Buffer.byteLength(bodyData));
-                // stream the content
                 proxyReq.write(bodyData);
             }
         }
@@ -45,7 +41,6 @@ exports.proxies = {
             [`^/autenticacion`]: "/autenticar",
         },
         logLevel: 'debug',
-        //logProvider:
         onError(err, req, res) {
             res.writeHead(500, {
                 'Content-Type': 'text/plain'
@@ -58,7 +53,6 @@ exports.proxies = {
                 let bodyData = JSON.stringify(req.body);
                 +                proxyReq.setHeader('Content-Type', 'application/json');
                 proxyReq.setHeader('Content-Length', Buffer.byteLength(bodyData));
-                // stream the content
                 proxyReq.write(bodyData);
             }
         }
@@ -67,12 +61,10 @@ exports.proxies = {
         protected: false,
         target: "http://64.226.112.105:3003/",
         changeOrigin: true,
-        // secure: false,
         pathRewrite: {
             [`^/finalizar`]: "/finalizar",
         },
         logLevel: 'debug',
-        //logProvider:
         onError(err, req, res) {
             res.writeHead(500, {
                 'Content-Type': 'text/plain'
@@ -85,7 +77,6 @@ exports.proxies = {
                 let bodyData = JSON.stringify(req.body);
                 +                proxyReq.setHeader('Content-Type', 'application/json');
                 proxyReq.setHeader('Content-Length', Buffer.byteLength(bodyData));
-                // stream the content
                 proxyReq.write(bodyData);
             }
         }

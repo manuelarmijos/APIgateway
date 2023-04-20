@@ -38,7 +38,7 @@ const corsConfig = {
 };
 
 app.use(cors(corsConfig));
-app.options('*', cors(corsConfig))
+app.options('http://localhost:8080', cors(corsConfig))
 
 
 app.use(helmet());
